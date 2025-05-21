@@ -23,7 +23,7 @@ export default function Home() {
           alt="logo"
         />
         <h1 className="text-[28px] font-bold leading-[1.2] sm:text-[30px] self-start text-left">
-          Enter your Robot's Auth key
+          Enter your Robot`s Auth key
         </h1>
         <form className="flex flex-col gap-4 w-full">
           <input
