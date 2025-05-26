@@ -18,6 +18,93 @@ export default function VoiceControl({ keyVal }) {
   const wsRef = useRef(null);
   const sendIntervalRef = useRef(null);
 
+  const VOICE_COMMANDS = [
+    {
+      id: 0,
+      name: "Forward",
+      description: "Move robot forward",
+      examples: ["move forward", "go ahead", "forward"],
+    },
+    {
+      id: 1,
+      name: "Backward",
+      description: "Move robot backward",
+      examples: ["move backward", "go back", "reverse"],
+    },
+    {
+      id: 2,
+      name: "Rotate",
+      description: "Rotate robot",
+      examples: ["rotate", "turn around", "spin"],
+    },
+    {
+      id: 3,
+      name: "Right",
+      description: "Move robot right",
+      examples: ["move right", "go right", "turn right"],
+    },
+    {
+      id: 4,
+      name: "Left",
+      description: "Move robot left",
+      examples: ["move left", "go left", "turn left"],
+    },
+    {
+      id: 5,
+      name: "Elbow Up",
+      description: "Move elbow up",
+      examples: ["elbow up", "raise elbow", "lift elbow"],
+    },
+    {
+      id: 6,
+      name: "Elbow Down",
+      description: "Move elbow down",
+      examples: ["elbow down", "lower elbow", "drop elbow"],
+    },
+    {
+      id: 7,
+      name: "Claw Open",
+      description: "Open robot claw",
+      examples: ["open claw", "open gripper", "release"],
+    },
+    {
+      id: 8,
+      name: "Claw Close",
+      description: "Close robot claw",
+      examples: ["close claw", "close gripper", "grab"],
+    },
+    {
+      id: 9,
+      name: "Base Rotate Left",
+      description: "Rotate base left",
+      examples: ["base left", "rotate base left", "turn base left"],
+    },
+    {
+      id: 10,
+      name: "Base Rotate Right",
+      description: "Rotate base right",
+      examples: ["base right", "rotate base right", "turn base right"],
+    },
+    {
+      id: 11,
+      name: "Shoulder Up",
+      description: "Move shoulder up",
+      examples: ["shoulder up", "raise shoulder", "lift shoulder"],
+    },
+    {
+      id: 12,
+      name: "Shoulder Down",
+      description: "Move shoulder down",
+      examples: ["shoulder down", "lower shoulder", "drop shoulder"],
+    },
+    {
+      id: 13,
+      name: "Stop",
+      description: "Stop all movement",
+      examples: ["stop", "halt", "freeze", "pause"],
+    },
+  ];
+
   const {
     transcript,
     listening,
@@ -212,8 +299,8 @@ export default function VoiceControl({ keyVal }) {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen gap-5 px-4 font-[family-name:var(--font-geist-sans)] w-1/2">
-      <div className="w-full max-w-xl flex flex-col items-center gap-6">
+    <div className="flex flex-col items-center justify-center min-h-screen gap-5 px-4 font-[family-name:var(--font-geist-sans)] w-[95%] mt-5">
+      <div className="w-full max-w-2xl flex flex-col items-center gap-6">
         <div className="flex justify-between w-full mb-6">
           <button
             onClick={handleBackClick}
@@ -286,6 +373,25 @@ export default function VoiceControl({ keyVal }) {
             <p className="text-green-600 font-bold text-xl">Intent: {intent}</p>
           )
         )}
+
+        <div className="bg-gray-800 rounded-lg p-6 w-full">
+          <h2 className="text-xl font-semibold text-white mb-4">
+            Supported Voice Commands
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {VOICE_COMMANDS.map((command) => (
+              <div key={command.id} className="bg-gray-700 p-3 rounded-md">
+                <p className="text-white">
+                  <span className="font-bold">{command.name}</span> -{" "}
+                  {command.description}
+                </p>
+                <p className="text-gray-300 text-sm mt-1">
+                  Examples: {command.examples.join(", ")}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
