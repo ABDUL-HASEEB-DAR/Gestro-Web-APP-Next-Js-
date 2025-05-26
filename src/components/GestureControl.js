@@ -3,7 +3,22 @@
 import React, { useState, useEffect, useRef } from "react";
 import { FaHandPaper, FaArrowLeft } from "react-icons/fa";
 
-const gestureLabels = ["Open", "Close", "Pointer", "OK", "Peace"];
+const gestureLabels = [
+  "Open", // 🖐️ - Move Forward
+  "Close", // ✊ - Move Backward
+  "Pointer", // 👆 - Rotate
+  "Point Right", // 👉 - Move Right
+  "Point Left", // 👈 - Move Left
+  "Thumbs Up", // 👍 - Elbow Up
+  "Thumbs Down", // 👎 - Elbow Down
+  "Pinch Open", // 🤏 - Claw Open
+  "Pinch Close", // 🤏 - Claw Close
+  "Peace", // ✌️ - Base Rotate Left
+  "Rock", // 🤘 - Base Rotate Right
+  "2-Finger Up", // 👆 - Shoulder Up
+  "2-Finger Down", // 👇 - Shoulder Down
+];
+
 const GESTURE_DESCRIPTIONS = [
   "Open palm 🖐️ - Move Forward",
   "Closed fist ✊ - Move Backward",
