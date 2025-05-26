@@ -32,7 +32,9 @@ export default function VoiceControl({ keyVal }) {
   useEffect(() => {
     const connectWebSocket = () => {
       try {
-        const ws = new WebSocket("ws://127.0.0.1:5000/ws");
+        const ws = new WebSocket(
+          "wss://hand-gesture-recognition-mediapipe-web.onrender.com/ws"
+        );
 
         ws.onopen = () => {
           console.log("WebSocket connected");
