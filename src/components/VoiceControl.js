@@ -113,7 +113,7 @@ export default function VoiceControl({ keyVal }) {
   } = useSpeechRecognition();
 
   const GROQ_API_KEY =
-    "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";
+    "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";
 
   // Initialize WebSocket connection
   useEffect(() => {
